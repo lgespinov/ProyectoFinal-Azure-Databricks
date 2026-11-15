@@ -8,11 +8,11 @@ from pyspark.sql.types import *
 
 # 1. Leer tablas de la capa Bronze
 df_ecommerce = spark.table(
-    "proyectofinal_dev.bronze.ecommerce"
+    "proyectofinal_prod.bronze.ecommerce"
 )
 
 df_metals = spark.table(
-    "proyectofinal_dev.bronze.metals"
+    "proyectofinal_prod.bronze.metals"
 )
 
 # 2. Validar cantidad de registros
@@ -114,7 +114,7 @@ display(df_silver_metals.limit(5))
     .format("delta")
     .mode("overwrite")
     .option("overwriteSchema", "true")
-    .saveAsTable("proyectofinal_dev.silver.ecommerce")
+    .saveAsTable("proyectofinal_prod.silver.ecommerce")
 )
 
 print("Tabla Silver E-commerce creada correctamente.")
@@ -125,7 +125,7 @@ print("Tabla Silver E-commerce creada correctamente.")
     .format("delta")
     .mode("overwrite")
     .option("overwriteSchema", "true")
-    .saveAsTable("proyectofinal_dev.silver.metals")
+    .saveAsTable("proyectofinal_prod.silver.metals")
 )
 
 print("Tabla Silver Metals creada correctamente.")
@@ -136,10 +136,10 @@ print("Tabla Silver Metals creada correctamente.")
 
 spark.sql("""
 SELECT 'E-commerce' AS dataset, COUNT(*) AS registros
-FROM proyectofinal_dev.silver.ecommerce
+FROM proyectofinal_prod.silver.ecommerce
 
 UNION ALL
 
 SELECT 'Metals' AS dataset, COUNT(*) AS registros
-FROM proyectofinal_dev.silver.metals
+FROM proyectofinal_prod.silver.metals
 """).display()
