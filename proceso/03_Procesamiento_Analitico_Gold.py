@@ -6,11 +6,11 @@ from pyspark.sql import functions as F
 # ==========================================
 
 df_ecommerce = spark.table(
-    "proyectofinal_dev.silver.ecommerce"
+    "proyectofinal_prod.silver.ecommerce"
 )
 
 df_metals = spark.table(
-    "proyectofinal_dev.silver.metals"
+    "proyectofinal_prod.silver.metals"
 )
 
 # ==========================================
@@ -85,7 +85,7 @@ display(df_gold_metals.limit(10))
     .format("delta")
     .mode("overwrite")
     .option("overwriteSchema", "true")
-    .saveAsTable("proyectofinal_dev.gold.indicadores_ecommerce")
+    .saveAsTable("proyectofinal_prod.gold.indicadores_ecommerce")
 )
 
 print("Tabla Gold E-commerce creada correctamente.")
@@ -96,7 +96,7 @@ print("Tabla Gold E-commerce creada correctamente.")
     .format("delta")
     .mode("overwrite")
     .option("overwriteSchema", "true")
-    .saveAsTable("proyectofinal_dev.gold.indicadores_metals")
+    .saveAsTable("proyectofinal_prod.gold.indicadores_metals")
 )
 
 print("Tabla Gold Metals creada correctamente.")
@@ -109,10 +109,10 @@ print("Tabla Gold Metals creada correctamente.")
 
 spark.sql("""
 SELECT 'E-commerce' AS dataset, COUNT(*) AS registros
-FROM proyectofinal_dev.gold.indicadores_ecommerce
+FROM proyectofinal_prod.gold.indicadores_ecommerce
 
 UNION ALL
 
 SELECT 'Metals' AS dataset, COUNT(*) AS registros
-FROM proyectofinal_dev.gold.indicadores_metals
+FROM proyectofinal_prod.gold.indicadores_metals
 """).display()
