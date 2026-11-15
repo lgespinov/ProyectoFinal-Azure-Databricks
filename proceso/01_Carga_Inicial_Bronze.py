@@ -116,7 +116,7 @@ df_bronze_metals = (
     df_bronze_ecommerce.write
     .format("delta")
     .mode("overwrite")
-    .saveAsTable("proyectofinal_dev.bronze.ecommerce")
+    .saveAsTable("proyectofinal_prod.bronze.ecommerce")
 )
 
 # 4. Guardar Metals como tabla Delta
@@ -124,7 +124,7 @@ df_bronze_metals = (
     df_bronze_metals.write
     .format("delta")
     .mode("overwrite")
-    .saveAsTable("proyectofinal_dev.bronze.metals")
+    .saveAsTable("proyectofinal_prod.bronze.metals")
 )
 
 print("Carga Bronze finalizada correctamente.")
@@ -134,8 +134,8 @@ print("Carga Bronze finalizada correctamente.")
 # Validación de registros en Bronze
 spark.sql("""
 SELECT 'E-commerce' AS dataset, COUNT(*) AS registros
-FROM proyectofinal_dev.bronze.ecommerce
+FROM proyectofinal_prod.bronze.ecommerce
 UNION ALL
 SELECT 'Metals' AS dataset, COUNT(*) AS registros
-FROM proyectofinal_dev.bronze.metals
+FROM proyectofinal_prod.bronze.metals
 """).display()
