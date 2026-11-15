@@ -1,0 +1,18 @@
+# Reversión del Proyecto
+
+Esta carpeta contiene los scripts de reversión
+de los procesos implementados en Azure Databricks.
+
+Catálogo: proyectofinal_dev
+
+Esquemas:
+- bronze
+- silver
+- gold
+
+Los scripts permitirán eliminar tablas Delta
+y gestionar la limpieza de rutas físicas cuando
+corresponda, previa validación.
+
+La ejecución de estos scripts será controlada
+para evitar pérdidas accidentales de información.
