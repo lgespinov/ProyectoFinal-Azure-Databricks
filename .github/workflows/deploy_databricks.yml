@@ -1,0 +1,59 @@
+
+name: CI-CD Azure Databricks
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "proceso/**"
+      - ".github/workflows/deploy_databricks.yml"
+
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    name: Deploy Notebooks to Production
+    runs-on: ubuntu-latest
+
+    env:
+      DATABRICKS_HOST: ${{ secrets.AZURE_DBX_PROD_HOST }}
+      DATABRICKS_TOKEN: ${{ secrets.AZURE_DBX_PROD_TOKEN }}
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install Databricks CLI
+        uses: databricks/setup-cli@main
+
+      - name: Create production directory
+        run: |
+          databricks workspace mkdirs /Shared/ProyectoFinal/Produccion
+
+      - name: Deploy Bronze notebook
+        run: |
+          databricks workspace import \
+            /Shared/ProyectoFinal/Produccion/01_Carga_Inicial_Bronze \
+            --file proceso/01_Carga_Inicial_Bronze.py \
+            --language PYTHON \
+            --format SOURCE \
+            --overwrite
+
+      - name: Deploy Silver notebook
+        run: |
+          databricks workspace import \
+            /Shared/ProyectoFinal/Produccion/02_Limpieza_Transformacion_Silver \
+            --file proceso/02_Limpieza_Transformacion_Silver.py \
+            --language PYTHON \
+            --format SOURCE \
+            --overwrite
+
+      - name: Deploy Gold notebook
+        run: |
+          databricks workspace import \
+            /Shared/ProyectoFinal/Produccion/03_Procesamiento_Analitico_Gold \
+            --file proceso/03_Procesamiento_Analitico_Gold.py \
+            --language PYTHON \
+            --format SOURCE \
+            --overwrite
