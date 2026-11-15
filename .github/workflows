@@ -1,0 +1,10 @@
+# GitHub Actions - CI/CD
+
+Esta carpeta contiene el workflow de integración
+y despliegue continuo del proyecto Azure Databricks.
+
+El ETL permitirá:
+- Ejecutar Bronze, Silver y Gold en producción.
+- Verificar el resultado de la ejecución.
+
+El workflow se implementará mediante un archivo YAML.
