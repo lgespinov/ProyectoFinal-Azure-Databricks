@@ -1,0 +1,7 @@
+# Datasets
+
+Esta carpeta contiene los archivos de entrada utilizados
+en el proceso ETL de Azure Databricks.
+
+- E-commerce Sales Prediction
+- Young's Modulus of Metals
