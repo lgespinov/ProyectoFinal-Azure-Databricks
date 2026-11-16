@@ -9,3 +9,6 @@ Se incluirán:
 - Capturas de certificaciones obtenidas.
 - Enlaces de verificación, cuando estén disponibles.
 - Descripción de las competencias adquiridas.
+
+https://credentials.databricks.com/profile/luisgustavoespinovalenzuela321805/wallet
+
