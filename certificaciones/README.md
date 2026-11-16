@@ -8,11 +8,10 @@ de ingeniería de datos en Azure Databricks.
 ## Evidencias
 
 - [Ver certificado de Databricks Fundamentals](./Certificado_DataBricks_Fundamentals.pdf)
+- [Ver certificado de Platform Fundamentals](./DataBricks_Platform_Fundamentals.jpg)
+- [Ver certificado de Generic AI Fundamentals](./Databricks_Generic_AI_Fundamentals.pdf)
 
-Se incluirán:
-- Capturas de certificaciones obtenidas.
-- Enlaces de verificación, cuando estén disponibles.
-- Descripción de las competencias adquiridas.
+## Enlace de Verificación
 
 https://credentials.databricks.com/profile/luisgustavoespinovalenzuela321805/wallet
 
