@@ -7,7 +7,7 @@ de ingeniería de datos en Azure Databricks.
 
 ## Evidencias
 
-- [Ver certificado de Databricks Fundamentals](./Certificado DataBricks Fundamentals.pdf)
+- [Ver certificado de Databricks Fundamentals](./Certificado_DataBricks_Fundamentals.pdf)
 
 Se incluirán:
 - Capturas de certificaciones obtenidas.
